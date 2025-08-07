@@ -6,11 +6,15 @@ on:
     paths:
       - 'j/Java.java'
       - 'j/**/*.java'
+      - 'src/main/java/**/*.java'
+      - 'pom.xml'
   pull_request:
     branches: [ "main" ]
     paths:
       - 'j/Java.java'
       - 'j/**/*.java'
+      - 'src/main/java/**/*.java'
+      - 'pom.xml'
 
 jobs:
   analyze:
@@ -42,12 +46,8 @@ jobs:
         languages: ${{ matrix.language }}
         queries: security-extended,security-and-quality
 
-    - name: Build Java files
-      run: |
-        mkdir -p java-project
-        cp j/Java.java java-project/
-        cd java-project
-        javac Java.java
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v2
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2

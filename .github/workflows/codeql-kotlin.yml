@@ -7,12 +7,18 @@ on:
       - 'k/Kotlin.kt'
       - 'k/**/*.kt'
       - 'k/**/*.kts'
+      - 'src/main/kotlin/**/*.kt'
+      - 'src/main/kotlin/**/*.kts'
+      - 'pom.xml'
   pull_request:
     branches: [ "main" ]
     paths:
       - 'k/Kotlin.kt'
       - 'k/**/*.kt'
       - 'k/**/*.kts'
+      - 'src/main/kotlin/**/*.kt'
+      - 'src/main/kotlin/**/*.kts'
+      - 'pom.xml'
 
 jobs:
   analyze:
@@ -38,23 +44,14 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Setup Kotlin
-      run: |
-        curl -s https://get.sdkman.io | bash
-        source "$HOME/.sdkman/bin/sdkman-init.sh"
-        sdk install kotlin
-
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v2
       with:
         languages: ${{ matrix.language }}
         queries: security-extended,security-and-quality
 
-    - name: Build Kotlin file
-      run: |
-        export PATH="$HOME/.sdkman/candidates/kotlin/current/bin:$PATH"
-        kotlinc k/Kotlin.kt -include-runtime -d kotlin-hello.jar
-        java -jar kotlin-hello.jar
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v2
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2

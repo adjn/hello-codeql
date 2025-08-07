@@ -101,3 +101,6 @@ $RECYCLE.BIN/
 # C/C++ executables
 hello_c
 hello_cpp
+
+# Maven build artifacts
+target/
