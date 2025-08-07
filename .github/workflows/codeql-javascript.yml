@@ -1,0 +1,62 @@
+name: "CodeQL Analysis - JavaScript/TypeScript"
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'j/JavaScript.js'
+      - 't/TypeScript.ts'
+      - 'j/**/*.js'
+      - 't/**/*.ts'
+      - 'j/**/*.jsx'
+      - 't/**/*.tsx'
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - 'j/JavaScript.js'
+      - 't/TypeScript.ts'
+      - 'j/**/*.js'
+      - 't/**/*.ts'
+      - 'j/**/*.jsx'
+      - 't/**/*.tsx'
+
+jobs:
+  analyze:
+    name: Analyze JavaScript/TypeScript
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'javascript' ]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: ${{ matrix.language }}
+        queries: security-extended,security-and-quality
+
+    - name: Test JavaScript and TypeScript files
+      run: |
+        node j/JavaScript.js
+        # For TypeScript, we'll install ts-node to run it
+        npm install -g typescript ts-node
+        ts-node t/TypeScript.ts
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
+      with:
+        category: "/language:${{matrix.language}}"

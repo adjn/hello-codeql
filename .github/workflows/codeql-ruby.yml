@@ -1,0 +1,51 @@
+name: "CodeQL Analysis - Ruby"
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'r/Ruby.rb'
+      - 'r/**/*.rb'
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - 'r/Ruby.rb'
+      - 'r/**/*.rb'
+
+jobs:
+  analyze:
+    name: Analyze Ruby
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'ruby' ]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.2'
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: ${{ matrix.language }}
+        queries: security-extended,security-and-quality
+
+    - name: Test Ruby file
+      run: |
+        ruby r/Ruby.rb
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
+      with:
+        category: "/language:${{matrix.language}}"
