@@ -94,3 +94,13 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/linux,windows,macos,visualstudiocode
+
+# Swift build artifacts
+.build/
+
+# C/C++ executables
+hello_c
+hello_cpp
+
+# Maven build artifacts
+target/

@@ -44,10 +44,8 @@ jobs:
         languages: ${{ matrix.language }}
         queries: security-extended,security-and-quality
 
-    - name: Build C files
-      run: |
-        gcc -o c/hello_c c/C.c
-        g++ -o c/hello_cpp c/C++.cpp
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v2
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
