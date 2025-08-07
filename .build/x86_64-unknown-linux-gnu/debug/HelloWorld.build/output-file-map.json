@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/home/runner/work/hello-codeql/hello-codeql/.build/x86_64-unknown-linux-gnu/debug/HelloWorld.build/master.swiftdeps"
+  },
+  "/home/runner/work/hello-codeql/hello-codeql/s/Swift.swift": {
+    "dependencies": "/home/runner/work/hello-codeql/hello-codeql/.build/x86_64-unknown-linux-gnu/debug/HelloWorld.build/Swift.d",
+    "object": "/home/runner/work/hello-codeql/hello-codeql/.build/x86_64-unknown-linux-gnu/debug/HelloWorld.build/Swift.swift.o",
+    "swiftmodule": "/home/runner/work/hello-codeql/hello-codeql/.build/x86_64-unknown-linux-gnu/debug/HelloWorld.build/Swift~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/hello-codeql/hello-codeql/.build/x86_64-unknown-linux-gnu/debug/HelloWorld.build/Swift.swiftdeps"
+  }
+}

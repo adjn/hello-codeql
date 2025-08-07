@@ -1,0 +1,198 @@
+{
+  "builtTestProducts" : [
+
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.HelloWorld-x86_64-unknown-linux-gnu-debug.module" : {
+      "executable" : "/usr/share/swift/usr/bin/swiftc",
+      "fileList" : "/home/runner/work/hello-codeql/hello-codeql/.build/x86_64-unknown-linux-gnu/debug/HelloWorld.build/sources",
+      "importPath" : "/home/runner/work/hello-codeql/hello-codeql/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/hello-codeql/hello-codeql/s/Swift.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/hello-codeql/hello-codeql/.build/x86_64-unknown-linux-gnu/debug/swift-version--1BFCD5C06E9F820A.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/hello-codeql/hello-codeql/.build/x86_64-unknown-linux-gnu/debug/HelloWorld.build/sources"
+        }
+      ],
+      "isLibrary" : false,
+      "moduleName" : "HelloWorld",
+      "moduleOutputPath" : "/home/runner/work/hello-codeql/hello-codeql/.build/x86_64-unknown-linux-gnu/debug/Modules/HelloWorld.swiftmodule",
+      "objects" : [
+        "/home/runner/work/hello-codeql/hello-codeql/.build/x86_64-unknown-linux-gnu/debug/HelloWorld.build/Swift.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "x86_64-unknown-linux-gnu",
+        "-enable-batch-mode",
+        "-index-store-path",
+        "/home/runner/work/hello-codeql/hello-codeql/.build/x86_64-unknown-linux-gnu/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j4",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-module-cache-path",
+        "/home/runner/work/hello-codeql/hello-codeql/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+        "-parseable-output",
+        "-Xfrontend",
+        "-entry-point-function-name",
+        "-Xfrontend",
+        "HelloWorld_main",
+        "-color-diagnostics",
+        "-swift-version",
+        "5",
+        "-g",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-Xcc",
+        "-fno-omit-frame-pointer"
+      ],
+      "outputFileMapPath" : "/home/runner/work/hello-codeql/hello-codeql/.build/x86_64-unknown-linux-gnu/debug/HelloWorld.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/hello-codeql/hello-codeql/.build/x86_64-unknown-linux-gnu/debug/HelloWorld.build/Swift.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/hello-codeql/hello-codeql/.build/x86_64-unknown-linux-gnu/debug/Modules/HelloWorld.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/home/runner/work/hello-codeql/hello-codeql/s/Swift.swift"
+      ],
+      "tempsPath" : "/home/runner/work/hello-codeql/hello-codeql/.build/x86_64-unknown-linux-gnu/debug/HelloWorld.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "HelloWorld" : [
+      "/usr/share/swift/usr/bin/swiftc",
+      "-module-name",
+      "HelloWorld",
+      "-incremental",
+      "-c",
+      "/home/runner/work/hello-codeql/hello-codeql/s/Swift.swift",
+      "-I",
+      "/home/runner/work/hello-codeql/hello-codeql/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "-target",
+      "x86_64-unknown-linux-gnu",
+      "-enable-batch-mode",
+      "-index-store-path",
+      "/home/runner/work/hello-codeql/hello-codeql/.build/x86_64-unknown-linux-gnu/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j4",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-module-cache-path",
+      "/home/runner/work/hello-codeql/hello-codeql/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+      "-parseable-output",
+      "-Xfrontend",
+      "-entry-point-function-name",
+      "-Xfrontend",
+      "HelloWorld_main",
+      "-color-diagnostics",
+      "-swift-version",
+      "5",
+      "-g",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-Xcc",
+      "-fno-omit-frame-pointer",
+      "-driver-use-frontend-path",
+      "/usr/share/swift/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "HelloWorld" : [
+
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+
+  },
+  "traitConfiguration" : {
+    "enableAllTraits" : false
+  },
+  "writeCommands" : {
+    "/home/runner/work/hello-codeql/hello-codeql/.build/x86_64-unknown-linux-gnu/debug/HelloWorld.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/hello-codeql/hello-codeql/s/Swift.swift"
+        }
+      ],
+      "outputFilePath" : "/home/runner/work/hello-codeql/hello-codeql/.build/x86_64-unknown-linux-gnu/debug/HelloWorld.build/sources"
+    },
+    "/home/runner/work/hello-codeql/hello-codeql/.build/x86_64-unknown-linux-gnu/debug/HelloWorld.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/hello-codeql/hello-codeql/.build/x86_64-unknown-linux-gnu/debug/HelloWorld.build/HelloWorld.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/hello-codeql/hello-codeql/.build/x86_64-unknown-linux-gnu/debug/HelloWorld.build/Swift.swift.o"
+        }
+      ],
+      "outputFilePath" : "/home/runner/work/hello-codeql/hello-codeql/.build/x86_64-unknown-linux-gnu/debug/HelloWorld.product/Objects.LinkFileList"
+    },
+    "/home/runner/work/hello-codeql/hello-codeql/.build/x86_64-unknown-linux-gnu/debug/swift-version--1BFCD5C06E9F820A.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/usr/share/swift/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/home/runner/work/hello-codeql/hello-codeql/.build/x86_64-unknown-linux-gnu/debug/swift-version--1BFCD5C06E9F820A.txt"
+    }
+  }
+}
