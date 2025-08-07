@@ -1,0 +1,46 @@
+name: "CodeQL Analysis - Swift"
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 's/Swift.swift'
+      - 's/**/*.swift'
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - 's/Swift.swift'
+      - 's/**/*.swift'
+
+jobs:
+  analyze:
+    name: Analyze Swift
+    runs-on: macos-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'swift' ]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: ${{ matrix.language }}
+        queries: security-extended,security-and-quality
+
+    - name: Build Swift file
+      run: |
+        swift s/Swift.swift
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
+      with:
+        category: "/language:${{matrix.language}}"

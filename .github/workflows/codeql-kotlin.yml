@@ -1,0 +1,62 @@
+name: "CodeQL Analysis - Kotlin"
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'k/Kotlin.kt'
+      - 'k/**/*.kt'
+      - 'k/**/*.kts'
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - 'k/Kotlin.kt'
+      - 'k/**/*.kt'
+      - 'k/**/*.kts'
+
+jobs:
+  analyze:
+    name: Analyze Kotlin
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'java' ]  # Kotlin uses Java language pack
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Java (for Kotlin)
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name: Setup Kotlin
+      run: |
+        curl -s https://get.sdkman.io | bash
+        source "$HOME/.sdkman/bin/sdkman-init.sh"
+        sdk install kotlin
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: ${{ matrix.language }}
+        queries: security-extended,security-and-quality
+
+    - name: Build Kotlin file
+      run: |
+        export PATH="$HOME/.sdkman/candidates/kotlin/current/bin:$PATH"
+        kotlinc k/Kotlin.kt -include-runtime -d kotlin-hello.jar
+        java -jar kotlin-hello.jar
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
+      with:
+        category: "/language:${{matrix.language}}"
